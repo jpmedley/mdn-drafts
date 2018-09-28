@@ -1,13 +1,13 @@
-<div>{{SeeCompatTable}}{{APIRef("Keyboard APIs")}}</div>
+<div>{{SeeCompatTable}}{{APIRef("CSS Typed Object Model API")}}</div>
 
-<p><span class="seoSummary">The <strong><code>keyboard</code></strong> read-only property of the {{domxref("navigator")}} interface returns a {{domxref('Keyboard')}} object which provides access to functions that retrieve keyboard layout maps and toggle capturing of key presses from the physical keyboard. </span></p>
+<p><span class="seoSummary">The <strong><code>variable</code></strong>  property of the {{domxref("CSSVariableReferenceValue")}} interface returns a custom property’s name represented by an identifier that starts with two dashes. </span></p>
 
 <h2 id="Syntax">Syntax</h2>
 
-<pre class="syntaxbox">var <var>keyboard</var> = navigator.keyboard</pre>
+<pre class="syntaxbox">var <var>aString</var> = CSSVariableReferenceValue.<var>variable</var><br/>CSSVariableReferenceValue.<var>variable</var> = <var>aString</var></pre>
 
 <h3>Value</h3>
-<p>A {{domxref('Keyboard')}} object.</p>
+<p>A {{cssxref('CSSOMString')}}.</p>
 
 <h2>Example</h2>
 
@@ -23,8 +23,8 @@
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('Keyboard Map','#navigator-interface','keyboard')}}</td>
-   <td>{{Spec2('Keyboard Map')}}</td>
+   <td>{{SpecName('CSS Typed OM','#dom-cssvariablereferencevalue-variable','variable')}}</td>
+   <td>{{Spec2('CSS Typed OM')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -34,4 +34,4 @@
 
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
-<p>{{Compat("api.navigator.keyboard")}}</p>
+<p>{{Compat("api.CSSVariableReferenceValue.variable")}}</p>

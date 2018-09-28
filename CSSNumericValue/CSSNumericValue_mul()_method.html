@@ -1,29 +1,21 @@
-<div>{{APIRef("Keyboard APIs")}}{{SeeCompatTable}}</div>
+<div>{{APIRef("CSS Typed Object Model API")}}{{SeeCompatTable}}</div>
 
-<p><span class="seoSummary">The <strong><code>lock()</code></strong> method of the {{domxref("Keyboard")}} interface enables capturing keypresses for any or all of the keys on the physical keyboard. </sapn></p>
+<p><span class="seoSummary">The <strong><code>mul()</code></strong> method of the {{domxref("CSSNumericValue")}} interface multiplies one or more numbers and returns the result. This method does not change the initial value.</sapn></p>
 
 <h2 id="Syntax">Syntax</h2>
 
-<pre class="syntaxbox">var <var>promise</var> = Keyboard.lock([keyCodes[]])</pre>
+<pre class="syntaxbox">var <var>cssUnitValue</var> = <var>cssNumericValueChildInstance</var>.mul([<var>values</var>])</pre>
 
 <h3 id="Parameters">Parameters</h3>
 
-keyCoces
-
 <dl>
- <dt>option</dt>
- <dd>desc</dd>
- <dt>options {{optional_inline}}</dt>
- <dd>An object that sets&nbsp;options for .&nbsp;The available options are:
- <ul>
-  <li><code>option</code>: .</li>
- </ul>
- </dd>
+ <dt><code>values</code></dt>
+ <dd>One or more unit-specific values to add to the intitial value.</dd>
 </dl>
 
 <h3 id="Returns">Return value</h3>
 
-A {{jsxref('Promise')}}.
+A {{domxref('CSSNumbericValue')}}.
 
 <h2>Example</h2>
 
@@ -40,8 +32,8 @@ A {{jsxref('Promise')}}.
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('Keyboard Map','#h-keyboard-lock','lock()')}}</td>
-   <td>{{Spec2('Keyboard Map')}}</td>
+   <td>{{SpecName('CSS Typed OM','#dom-cssnumericvalue-mul','mul()')}}</td>
+   <td>{{Spec2('CSS Typed OM')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -51,4 +43,4 @@ A {{jsxref('Promise')}}.
 
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
-<p>{{Compat("api.Keyboard.lock()")}}</p>
+<p>{{Compat("api.CSSNumericValue.[[method]]")}}</p>

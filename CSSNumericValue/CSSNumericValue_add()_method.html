@@ -1,0 +1,58 @@
+<div>{{APIRef("CSS Typed Object Model API")}}{{SeeCompatTable}}</div>
+
+<p><span class="seoSummary">The <strong><code>add()</code></strong> method of the {{domxref("CSSNumericValue")}} interface adds one or more unit-specific numbers and returns the result as a {{domxref('CSSUnitValue')}}. This method does not change the initial value. </sapn></p>
+
+<h2 id="Syntax">Syntax</h2>
+
+<pre class="syntaxbox">var <var>cssUnitValue</var> = <var>cssNumericValueChildInstance</var>.sum([<var>values</var>])</pre>
+
+<h3 id="Parameters">Parameters</h3>
+
+<dl>
+ <dt><code>values</code></dt>
+ <dd>One or more unit-specific values to add to the intitial value.</dd>
+</dl>
+
+<h3 id="Returns">Return value</h3>
+
+A {{domxref('CSSNumbericValue')}}.
+
+<h2>Example</h2>
+
+<p>The following examples illustrate three facets of the <code>add()</code> method's behavior.</p>
+
+<pre class="brush: js">var pxs = CSS.px(1);
+var newVal = pxs.add(CSS.px(2), CSS,px(2));
+
+// Prints {value: 1, unit: "px"}
+console.log(pxs);
+
+// Prints {value: 5, unit: "px"}
+console.log(newVal)
+
+var noVAl = pxs.add(2)
+// Prints null
+console.log(noVal)</pre>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>{{SpecName('CSS Typed OM','#dom-cssnumericvalue-add','adds the provided numbers and returns the result.')}}</td>
+   <td>{{Spec2('CSS Typed OM')}}</td>
+   <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<p>{{Compat("api.CSSNumericValue.add")}}</p>

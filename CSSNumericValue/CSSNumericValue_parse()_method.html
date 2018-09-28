@@ -1,14 +1,14 @@
-<div>{{APIRef("Keyboard APIs")}}{{SeeCompatTable}}</div>
+<div>{{APIRef("CSS Typed Object Model API")}}{{SeeCompatTable}}</div>
 
-<p><span class="seoSummary">The <strong><code>getLayoutMap()</code></strong> method of the {{domxref("Keyboard")}} interface returns a {{jsxref('Promise')}} that resolves with an instance of {{domxref('KeyboardLayoutMap')}} which is a map-like object with fucntions for retrieving the glyphs associated with specific phuysical keys. </sapn></p>
+<p><span class="seoSummary">The <strong><code>parse()</code></strong> method of the {{domxref("CSSNumericValue")}} interface  </sapn></p>
 
 <h2 id="Syntax">Syntax</h2>
 
-<pre class="syntaxbox">var <var>promise</var> = Keyboard.getLayoutMap()</pre>
+<pre class="syntaxbox">var <var>cssNumericValue</var> = <var>cssNumericValueChildInstance</var>.([<var>cssText</var>]).</pre>
 
 <h3 id="Parameters">Parameters</h3>
 
-None.
+cssText
 
 <dl>
  <dt>option</dt>
@@ -23,7 +23,7 @@ None.
 
 <h3 id="Returns">Return value</h3>
 
-A {{jsxref('Promise')}} that resolves with an instance of {{domxref('KeyboardLayoutMap')}}.
+A {{domxref('CSSNumbericValue')}}.
 
 <h2>Example</h2>
 
@@ -40,8 +40,8 @@ A {{jsxref('Promise')}} that resolves with an instance of {{domxref('KeyboardLay
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('Keyboard Map','#h-keyboard-getlayoutmap','getLayoutMap()')}}</td>
-   <td>{{Spec2('Keyboard Map')}}</td>
+   <td>{{SpecName('CSS Typed OM','#dom-cssnumericvalue-parse','parse()')}}</td>
+   <td>{{Spec2('CSS Typed OM')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -51,4 +51,4 @@ A {{jsxref('Promise')}} that resolves with an instance of {{domxref('KeyboardLay
 
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
-<p>{{Compat("api.Keyboard.getLayoutMap()")}}</p>
+<p>{{Compat("api.CSSNumericValue.[[method]]")}}</p>
