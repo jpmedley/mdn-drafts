@@ -1,6 +1,6 @@
 <div>{{APIRef("CSS Typed Object Model API")}}{{SeeCompatTable}}</div>
 
-<p><span class="seoSummary">The <strong><code>parse()</code></strong> method of the {{domxref("CSSNumericValue")}} interface  </sapn></p>
+<p><span class="seoSummary">The <strong><code>parse()</code></strong> method of the {{domxref("CSSNumericValue")}} interface converts the digit-containg string to a {{domxref('CSSUnitValue')}}.</sapn></p>
 
 <h2 id="Syntax">Syntax</h2>
 
@@ -8,17 +8,11 @@
 
 <h3 id="Parameters">Parameters</h3>
 
-cssText
+
 
 <dl>
- <dt>option</dt>
+ <dt>cssText</dt>
  <dd>desc</dd>
- <dt>options {{optional_inline}}</dt>
- <dd>An object that sets&nbsp;options for .&nbsp;The available options are:
- <ul>
-  <li><code>option</code>: .</li>
- </ul>
- </dd>
 </dl>
 
 <h3 id="Returns">Return value</h3>
@@ -28,7 +22,15 @@ A {{domxref('CSSNumbericValue')}}.
 <h2>Example</h2>
 
 
-<pre class="brush: js">// TBD</pre>
+<pre class="brush: js">var parsed = CSSNumericValue.parse('42px');
+
+// Prints {value: 42, unit: "px"}.
+console.log(parsed)</pre>
+
+var parsed2 = CSSNumericValue.parse('I am 42');
+
+// Throws an error.
+console.log(parsed2);
 
 <h2 id="Specifications">Specifications</h2>
 
