@@ -1,0 +1,127 @@
+<div>{{draft}}{{APIRef("Clipboard API")}}{{SeeCompatTable}}</div>
+
+<p class="summary">The <strong><code>ClipboardItem</code></strong> interface of the {{domxref('Clipboard API')}} represents a single item format, used when reading or writing data via the {{domxref('Clipboard API')}}. That is {{domxref("clipboard.read()")}} and {{domxref("clipboard.write()")}} respectively.</p>
+
+<p>The benefit of having the <strong><code>ClipboardItem</code></strong> interface to represent data, is that it enables developers to cope with the varying scope of file types and data easily.</p>
+
+<div class="note">
+  <p><strong>Note</strong>: To work with text see the {{domxref("Clipboard.readText()")}} and {{domxref("Clipboard.writeText()")}} methods of the {{domxref("Clipboard")}} interface.</p>
+</div>
+
+<div class="note">
+  <p><strong>Note</strong>: You can only pass in one clipboard item at a time.</p>
+</div>
+
+<h2 id="Constructor">Constructor</h2>
+
+<dl>
+ <dt>{{domxref("ClipboardItem.ClipboardItem()")}}</dt>
+ <dd>Creates a new <strong><code>ClipboardItem</code></strong> object, with the {{Glossary("MIME type")}} as the key and {{domxref("Blob")}} as the value</dd>
+</dl>
+
+<h2 id="Properties">Properties</h2>
+
+<p><em>This interface provides the following properties.</em></p>
+
+<dl>
+  <dt>{{domxref("ClipboardItem.types", "types")}} {{ReadOnlyInline}}</dt>
+  <dd>Returns an {{jsxref("Array")}} of MIME types available within the <strong><code>ClipboardItem</code></strong>.</dd>
+</dl>
+
+<h2 id="Methods">Methods</h2>
+
+<p><em>This interface defines the following methods.</em></p>
+
+<dl>
+ <dt>{{domxref("ClipboardItem.getType", "getType()")}}</dt>
+ <dd>Returns the {{Glossary("MIME type")}} of the file {{domxref("Blob")}} within the respective <strong><code>ClipboardItem</code></strong>.</dd>
+</dl>
+
+<h2 id="Examples">Examples</h2>
+
+<h3 id="Writing_To_The_Clipboard">Writing To Clipboard</h3>
+
+<p>Here we're writing a new {{domxref("ClipboardItem.ClipboardItem()")}} to the {{domxref("Clipboard API"), "clipboard"}} by requesting a png image using the {{domxref("Fetch API")}}, and in turn, the {{domxref("Body.blob()"), responses' blob()}} method, to create the new {{domxref("ClipboardItem")}}.</p>
+
+<pre class="brush: js">
+async function writeClipImg() {
+  try {
+    const imgURL = '/myimage.png';
+    const data = await fetch(imgURL);
+    const blob = await data.blob();
+
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob
+      })
+    ]);
+    console.log('Fetched image copied.');
+  } catch(err) {
+    console.error(err.name, err.message);
+  }
+}
+</pre>
+
+<h3 id="Reading_From_The_Clipboard">Reading From The Clipboard</h3>
+
+<p>Here we're returning all items on the clipboard via the {{domxref("clipboard.read()")}} method. Then utilizing the {{domxref("ClipboardItem.types")}} property to set the {{domxref("ClipboardItem.getType", "getType()")}} argument and return the corresponding blob object.</p>
+
+<pre class="brush: js">
+async function getClipboardContents() {
+  try {
+    const clipboardItems = await navigator.clipboard.read();
+
+    for (const clipboardItem of clipboardItems) {
+      
+      for (const type of clipboardItem.types) {
+        const blob = await clipboardItem.getType(type);
+        // we can now use blob here
+      }
+
+    }
+
+  } catch (err) {
+    console.error(err.name, err.message);
+  }
+}
+</pre>
+
+<div class="note">
+  <p><strong>Note</strong>: To read and write to the {{domxref("Clipboard API")}} you need to set the correct permissions via the {{domxref("Permissions API")}}. The {{domxref("Clipboard.read()")}} and {{domxref("Clipboard.write()")}} pages have good examples of this.</p>
+</div>
+
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+    <td>{{SpecName('Clipboard API','#clipboarditem','ClipboardItem')}}</td>
+    <td>{{Spec2('Clipboard API')}}</td>
+    <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<p>{{Compat("api.ClipboardItem")}}</p>
+
+<div class="note">
+  <p><strong>Note</strong>: Image format support varies by browser. See the browser compatibility table for the {{domxref("Clipboard")}} interface.</p>
+</div>
+
+<h2 id="See_also">See also</h2>
+
+<ul>
+  <li>{{domxref("Clipboard")}}</li>
+  <li><a href="https://async-clipboard-api.glitch.me/">Async Clipboard API demo on Glitch</a></li>
+	<li><a href="https://web.dev/image-support-for-async-clipboard/">Image support for Async Clipboard article</a></li>
+</ul>
