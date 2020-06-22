@@ -1,18 +1,16 @@
-<div>{{draft}}null{{APIRef("")}}</div>
-
-<p>{{APIRef("ClipboardItem")}}{{SeeCompatTable}}</p>
+<div>{{draft}}{{APIRef("Clipboard API")}}{{SeeCompatTable}}</p>
 
 <p class="summary">The <code><strong>ClipboardItem()</strong></code> constructor of the {{domxref("Clipboard API")}} creates a new {{domxref("ClipboardItem")}} object which represents data to be stored or retrieved via the {{domxref("Clipboard API")}}, that is {{domxref("clipboard.write()")}} and {{domxref("clipboard.read()")}} respectively.</p>
 
 <h2 id="Syntax">Syntax</h2>
 
-<pre class="syntaxbox">var <var>ClipboardItem</var> = new ClipboardItem(ClipboardItemData)</pre>
+<pre class="syntaxbox">var <var>ClipboardItem</var> = new ClipboardItem(ClipboardItemData);</pre>
 
 <h3 id="Parameters">Parameters</h3>
 
 <dl>
   <dt><code>ClipboardItemData</code></dt>
-  <dd>An {{jsxref("Object")}} with the {{Glossary("MIME type")}} as the key and {{domxref("Blob")}} as the value</dd>
+  <dd>An {{jsxref("Object")}} with the {{Glossary("MIME type")}} as the key and {{domxref("Blob")}} as the value.</dd>
 </dl>
 
 <div class="note">
@@ -24,7 +22,7 @@
 <p>The below example requests a png image using the {{domxref("Fetch API")}}, and in turn, the {{domxref("Body.blob()"), responses' blob()}} method, to create a new {{domxref("ClipboardItem")}} and write it to the clipboard, using the {{domxref("Clipboard API")}}.</p>
 
 <div class="note">
-  <p><strong>Note</strong>: Currently you can only pass in one clipboard item at a time, support for multiple items is planned for the future.</p>
+  <p><strong>Note</strong>: You can only pass in one clipboard item at a time.</p>
 </div>
 
 <pre class="brush: js">
@@ -56,8 +54,8 @@ async function writeClipImg() {
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('','null','ClipboardItem')}}</td>
-   <td>{{Spec2('')}}</td>
+   <td>{{SpecName('Clipboard API','#clipboarditem','ClipboardItem')}}</td>
+   <td>{{Spec2('Clipboard API')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -68,4 +66,3 @@ async function writeClipImg() {
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
 <p>{{Compat("api.ClipboardItem.ClipboardItem")}}</p>
-
