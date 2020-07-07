@@ -1,0 +1,63 @@
+<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("null")}}</div>
+
+<p class="summary">The <strong><code>release()</code></strong> method of the {{domxref("WakeLockSentinel")}} interface releases the {{domxref("WakeLockSentinel")}}, returning a {{jsxref("Promise")}} that is resolved once the sentinel has been successfully released.</p>
+
+<h2 id="Syntax">Syntax</h2>
+
+<!-- slightly unsure about this because in practice you most likely won't pass it into a var, just call it -->
+<pre class="syntaxbox">var <var>release</var> = WakeLockSentinel.release();</pre>
+
+<h3 id="Parameters">Parameters</h3>
+
+<p>This method does not receive any parameters.</p>
+
+<h3 id="Returns">Return value</h3>
+
+<p>Returns a {{jsxref("Promise")}} that resolves with <code>undefined</code></p>
+
+<!-- and I quote "We don't handle failures... it is not like we would turn off the
+screen or so if the lock is released.
+
+All we do is drop our intent for the screen to remain on. The system
+might never turn off the screen (user pref) or there might be a lot of
+other "screen locks" active in the system, like the user playing a
+video at the same time."-->
+
+<!-- <h3 id="Exceptions">Exceptions</h3>
+
+<p>The promise is rejected when any exception is encountered.</p> -->
+
+
+<h2 id="Examples">Examples</h2>
+
+<p>In this example, when a user clicks a button the {{domxref("WakeLockSentinel")}} is released.</p>
+
+<pre class="brush: js">
+wakeLockOffButton.addEventListener('click', () => {
+  WakeLockSentinel.release();
+})
+</pre>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>{{SpecName('','null','release')}}</td>
+   <td>{{Spec2('')}}</td>
+   <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<p>{{Compat("api.WakeLockSentinel.release")}}</p>
+
