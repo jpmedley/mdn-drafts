@@ -1,4 +1,4 @@
-<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Wake Lock API")}}</div>
+<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Screen Wake Lock API")}}</div>
 
 <p class="summary">The <strong><code>release()</code></strong> method of the {{domxref("WakeLockSentinel")}} interface releases the {{domxref("WakeLockSentinel")}}, returning a {{jsxref("Promise")}} that is resolved once the sentinel has been successfully released.</p>
 
@@ -15,6 +15,8 @@
 
 <p>Returns a {{jsxref("Promise")}} that resolves with <code>undefined</code></p>
 
+<!-- <h3 id="Exceptions">Exceptions</h3> -->
+
 <!-- and I quote "We don't handle failures... it is not like we would turn off the
 screen or so if the lock is released.
 
@@ -22,11 +24,6 @@ All we do is drop our intent for the screen to remain on. The system
 might never turn off the screen (user pref) or there might be a lot of
 other "screen locks" active in the system, like the user playing a
 video at the same time."-->
-
-<!-- <h3 id="Exceptions">Exceptions</h3>
-
-<p>The promise is rejected when any exception is encountered.</p> -->
-
 
 <h2 id="Examples">Examples</h2>
 
@@ -48,8 +45,8 @@ wakeLockOffButton.addEventListener('click', () => {
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('Wake Lock API','#wakelocksentinel','release')}}</td>
-   <td>{{Spec2('Wake Lock API')}}</td>
+   <td>{{SpecName('Screen Wake Lock API','#wakelocksentinel','release')}}</td>
+   <td>{{Spec2('Screen Wake Lock API')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>

@@ -1,8 +1,8 @@
-<div>{{securecontext_header}}{{APIRef("")}}</div>
+<div>{{securecontext_header}}{{APIRef("Screen Wake Lock API")}}</div>
 
 <p class="summary">The <strong><code>onrelease</code></strong> property of the {{domxref("WakeLockSentinel")}} is fired when the sentinel object's handle has been released.</p>
 
-<p>A {{domxref("WakeLockSentinel")}} can be released manually via the release() method, or automatically via the platform wake lock. This can happen if the document becomes inactive or looses visibility, if the device is low on power or the user turns on a power save mode.</p>
+<p>A {{domxref("WakeLockSentinel")}} can be released manually via the {{domxref('WakeLockSentinal.release','release()')}} method, or automatically via the platform wake lock. This can happen if the document becomes inactive or looses visibility, if the device is low on power or the user turns on a power save mode.</p>
 
 <p>This interface inherits from the {{domxref("Event")}} interface.</p>
 
@@ -35,8 +35,8 @@ wakeLock.addEventListener('release', () => {
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('','null','null')}}</td>
-   <td>{{Spec2('')}}</td>
+   <td>{{SpecName('Screen Wake Lock API','#wakelocksentinel','onrelease')}}</td>
+   <td>{{Spec2('Screen Wake Lock API')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -46,4 +46,4 @@ wakeLock.addEventListener('release', () => {
 
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
-<p>{{Compat("api.WakeLockSentinel.null")}}</p>
+<p>{{Compat("api.WakeLockSentinel.onrelease")}}</p>
