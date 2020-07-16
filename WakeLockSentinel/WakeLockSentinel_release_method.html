@@ -9,21 +9,15 @@
 
 <h3 id="Parameters">Parameters</h3>
 
-<p>This method does not receive any parameters.</p>
+<p>None.</p>
 
 <h3 id="Returns">Return value</h3>
 
 <p>Returns a {{jsxref("Promise")}} that resolves with <code>undefined</code></p>
 
-<!-- <h3 id="Exceptions">Exceptions</h3> -->
+<h3 id="Exceptions">Exceptions</h3>
 
-<!-- and I quote "We don't handle failures... it is not like we would turn off the
-screen or so if the lock is released.
-
-All we do is drop our intent for the screen to remain on. The system
-might never turn off the screen (user pref) or there might be a lot of
-other "screen locks" active in the system, like the user playing a
-video at the same time."-->
+<p>No exceptions are thrown. You should always listen for the {{domxref('onrelease')}} event to check if a wake lock has been released.</p>
 
 <h2 id="Examples">Examples</h2>
 

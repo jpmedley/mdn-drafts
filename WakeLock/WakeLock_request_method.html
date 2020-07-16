@@ -1,32 +1,20 @@
 <div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Screen Wake Lock API")}}</div>
 
-<p class="summary">The <strong><code>request()</code></strong> method of the {{domxref("WakeLock")}} interface returns a {{jsref("Promise")}} that when resolved returns a {{domxref("WakeLockSentinel")}} object, which in turn allows control over screen dimming and locking.</p>
+<p class="summary">The <strong><code>request()</code></strong> method of the {{domxref("WakeLock")}} interface returns a {{jsxref("Promise")}} that resolves with a {{domxref("WakeLockSentinel")}} object, which allows control over screen dimming and locking.</p>
 
 
 <h2 id="Syntax">Syntax</h2>
 
-<pre class="syntaxbox">var <var>wakeLock</var> = navigator.wakeLock.request('screen');</pre>
+<pre class="syntaxbox">var <var>wakeLock</var> = navigator.wakeLock.request(<var>type</var>);</pre>
 
 <h3 id="Parameters">Parameters</h3>
 
 <dl>
-  <dt><code>type</code></dt>
-  <dd>A valid wake lock type<br />
-    <table class="standard-table">
-      <caption>The different types of Wake Lock available</caption>
-      <thead>
-       <tr>
-        <th scope="row"><code>type</code></th>
-        <th scope="col">Description</th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr>
-        <th scope="row"><code>screen</code></th>
-        <td>Prevents devices from dimming or locking the screen</td>
-       </tr>
-      </tbody>
-    </table>
+  <dt><em>type</em></dt>
+  <dd>Options are as follows:
+  <ul>
+   <li><code>'screen'</code>: Requests a screen wake lock. Prevents devices from dimming or locking the screen.</li>
+  </ul>
   </dd>
 </dl>
 
@@ -38,7 +26,7 @@
 
 <dl>
   <dt><code>NotAllowedError</code></dt>
-  <dd>The user agent denies the wake lock request (due to system settings or low battery). Or the document does not have a browser context, is not fully active or is not visible (ie not the active tab.</dd>
+  <dd>The user agent denies the wake lock request due to system settings or low battery. Or the document does not have a browser context, is not fully active or is not visible (i.e. not the active tab).</dd>
 </dl>
 
 <h2 id="Examples">Examples</h2>

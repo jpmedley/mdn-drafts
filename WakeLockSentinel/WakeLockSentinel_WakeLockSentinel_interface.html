@@ -1,9 +1,9 @@
 <!-- keeping refs-->
 <div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Screen Wake Lock API")}}</div>
 
-<p class="summary">The <strong><code>WakeLockSentinel</code></strong> interface of the {{domxref('Screen Wake Lock API')}} represents the object returned when requesting a wake lock via the {{domxref('WakeLock.request()','navigator.wakelock.request()')}} method. The <code>WakeLockSentinel</code> provides a handle to the underlying platform wake lock.</p>
+<p class="summary">The <strong><code>WakeLockSentinel</code></strong> interface of the {{domxref('Screen Wake Lock API')}} provides a handle to the underlying platform wake lock and can be manually released and reacquired. An {{jsxref('Object')}} representing the wake lock is returned via the {{domxref('WakeLock.request()','navigator.wakelock.request()')}} method.</p>
 
-<p>An acquired <code>WakeLockSentinel</code> can be released manually via the {{domxref('WakeLockSentinal.release','release()')}} method, or automatically via the platform wake lock. This can happen if the document becomes inactive or looses visibility, if the device is low on power or the user turns on a power save mode. Releasing all <code>WakeLockSentinel</code> instances of a given wake lock type will cause the underlying platform wake lock to be released.</p>
+<p>An acquired <code>WakeLockSentinel</code> can be released manually via the {{domxref('WakeLockSentinel.release','release()')}} method, or automatically via the platform wake lock. This can happen if the document becomes inactive or looses visibility, if the device is low on power or the user turns on a power save mode. Releasing all <code>WakeLockSentinel</code> instances of a given wake lock type will cause the underlying platform wake lock to be released.</p>
 
 <h2 id="Properties">Properties</h2>
 
@@ -12,36 +12,24 @@
 <dl>
   <dt>{{domxref("WakeLockSentinel.type", "type")}} {{ReadOnlyInline}}</dt>
   <dd>Returns a {{jsxref("String")}} representation of the currently acquired <code>WakeLockSentinel</code> type.<br />
-    <table class="standard-table">
-      <caption>The different types of Wake Lock available</caption>
-      <thead>
-       <tr>
-        <th scope="row"><code>type</code></th>
-        <th scope="col">Description</th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr>
-        <th scope="row"><code>screen</code></th>
-        <td>Prevents devices from dimming or locking the screen</td>
-       </tr>
-      </tbody>
-    </table>
+  Return values are:
+  <ul>
+   <li><code>'screen'</code>: A screen wake lock. Prevents devices from dimming or locking the screen.</li>
+  </ul>
   </dd>
 </dl>
-
 
 <h3 id="Event_handlers">Event handlers</h3>
 
 <dl>
   <dt>{{domxref("WakeLockSentinel.onrelease", "onrelease")}}</dt>
-  <dd>Fired when the {{domxref('WakeLockSentinal.release','release()')}} method is called or the wake lock is released by the user agent.</dd>
+  <dd>Fired when the {{domxref('WakeLockSentinel.release','release()')}} method is called or the wake lock is released by the user agent.</dd>
 </dl>
 
 <h2 id="Methods">Methods</h2>
 
 <dl>
-  <dt><code>release()</code></dt>
+  <dt>{{domxref('WakeLockSentinel.release()')}}</dt>
   <dd>Releases the <code>WakeLockSentinel</code>, returning a {{jsxref("Promise")}} that is resolved once the sentinel has been successfully released.</dd>
 </dl>
 

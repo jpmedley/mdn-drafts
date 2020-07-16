@@ -6,15 +6,15 @@
 
 <h2>Concepts and Usage</h2>
 
-<p>Most devices by default incorporated turning off the screen after a specified amount of time to prolong the life of the hardware, modern devices do this to save on battery power. Whilst this is a useful feature, some applications need the screen to stay awake to be their most useful.</p>
+<p>Most devices by default turn off their screen after a specified amount of time to prolong the life of the hardware. Modern devices do this to save on battery power. Whilst this is a useful feature, some applications need the screen to stay awake to be their most useful.</p>
 
 <p>The Screen Wake Lock API prevents the screen from turning off, dimming or locking. It allows for a simple platform based solution which up until now could only be achieved via workarounds which were potentially power hungry. Only visible (active) documents can acquire the screen wake lock.</p>
 
-<p>There are plenty of use cases for keeping a screen on, including reading an ebook, following a recipe, presenting to an audience, scanning a qr/barcode or applications that use voice or gesture control, rather than tactile input (the default way to keep a screen awake).</p>
+<p>There are plenty of use cases for keeping a screen on, including reading an ebook, following a recipe, presenting to an audience, scanning a QR/barcode or applications that use voice or gesture control, rather than tactile input (the default way to keep a screen awake).</p>
 
-<p>You acquire a {{domxref('WakeLockSentinel')}} object by calling the {{domxref('WakeLock.request','navigator.wakeLock.request()')}} {{domxref('Promise')}} based method that resolves if the platform allows it. A request may be rejected for a number of reasons, including system settings (such as power save mode or low battery level) or the document not being active or visible.</p>
+<p>You acquire a {{domxref('WakeLockSentinel')}} object by calling the {{domxref('WakeLock.request','navigator.wakeLock.request()')}} {{jsxref('Promise')}} based method that resolves if the platform allows it. A request may be rejected for a number of reasons, including system settings (such as power save mode or low battery level) or if the document is not active or visible.</p>
 
-<p>The sentinel is attached to the underlying system wake lock and can be released either by the system, again if the battery power is too low or the document becomes not visible or inactive. It can also be released manually via the release() method. It is good practice to store a reference to the sentinel object to control release later and also to reacquire the system wake lock if need be.</p>
+<p>The sentinel is attached to the underlying system wake lock. It can be released by the system, again if the battery power is too low or the document is not active or visible. It can also be released manually via the {{{{domxref('WakeLockSentinel.release()')}}}} method. It is good practice to store a reference to the sentinel object to control release later and also to reacquire the lock if need be.</p>
 
 <p>The Screen Wake Lock API should be used to keep the screen on to benefit usability. It's a good idea to show some feedback on the interface to show if wake lock is active and a way for the user to disable it if they wish.
 </p>
@@ -23,18 +23,18 @@
 
 <dl>
   <dt>{{domxref("WakeLock")}}</dt>
-  <dd>The main class of this API — contains functionality to request a wake lock.</dd>
+  <dd>The <strong><code>WakeLock</code></strong> interface prevents device screens from dimming or locking when an application needs to keep running.</dd>
 
   <dt>{{domxref("WakeLockSentinel")}}</dt>
-  <dd>The object that is returned by a successful call to the {{domxref('WakeLock.request')}} method of the {{domxref('Wake Lock API')}}. It provides a handle to the underlying platform wake lock and if referenced can be manually released and reacquired.</dd>
-
+  <dd>Provides a handle to the underlying platform wake lock and if referenced can be manually released and reacquired. Get an instance of the object by calling {{domxref('WakeLock.request')}}.</dd>
+  
   <dt>{{domxref("Navigator.wakelock")}}</dt>
-  <dd>The entry point into the API. Returns a {{domxref("WakeLock")}} object instance, from which all other functionality can be accessed.</dd>
+  <dd>Returns a {{domxref("WakeLock")}} object instance, from which all other functionality can be accessed.</dd>
 </dl>
 
 <h2 id="Examples">Examples</h2>
 
-<h3>Testing for support</h3>
+<h3>Feature Detection</h3>
 
 <p>This code checks for wake lock support and updates the UI accordingly.</p>
 
@@ -110,7 +110,7 @@ document.addEventListener('visibilitychange', () => {
 
 <h3>Putting it all together</h3>
 
-<p>The demo here uses a button to acquire a wake lock and also release it, which in turn updates the UI. The UI also updates if the wake lock is released automatically for any reason. There's a checkbox which when checked, will automatically reacquire the wake lock if the documents visibility state changes and becomes visible again.</p>
+<p>The demo here uses a button to acquire a wake lock and also release it, which in turn updates the UI. The UI also updates if the wake lock is released automatically for any reason. There's a checkbox which when checked, will automatically reacquire the wake lock if the document's visibility state changes and becomes visible again.</p>
 
 <!-- TODO add to gh to embed here -->
 

@@ -9,23 +9,14 @@
 <h3>Value</h3>
 <p>A {{jsxref("String")}} representation of the currently acquired wake lock type.</p>
 
-<table class="standard-table">
-  <caption>The different types of Wake Lock available</caption>
-  <thead>
-   <tr>
-    <th scope="row"><code>type</code></th>
-    <th scope="col">Description</th>
-   </tr>
-  </thead>
-  <tbody>
-   <tr>
-    <th scope="row"><code>screen</code></th>
-    <td>Prevents devices from dimming or locking the screen</td>
-   </tr>
-  </tbody>
-</table>
-
-<!--should there be a note about future supported types?-->
+<dl>
+  <dt><em>type</em> {{ReadOnlyInline}}</dt>
+  <dd>Return values are:
+  <ul>
+   <li><code>'screen'</code>: A screen wake lock. Prevents devices from dimming or locking the screen.</li>
+  </ul>
+  </dd>
+</dl>
 
 <h2 id="Examples">Examples</h2>
 
