@@ -6,7 +6,7 @@
 
 <p>As it stands, offline web content is not easily discoverable by users. Content indexing allows developers to tell the browser about their specific offline content. This allows users to discover and view what is available, whilst giving developers the ability to add and manage this content. Examples could be a news website prefetching the latest articles in the background, or a content streaming app registering downloaded content.</p>
 
-<p>The Content Index API is an extension to {{domxref('Service Worker API','service workers')}}, which allows developers to add URLs and metadata of already cached pages, under the scope of the current service worker. The browser can then use these entries to display offline reading to a user. As a developer you can also display these entries within your application.</p>
+<p>The Content Index API is an extension to <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">service workers</a>, which allows developers to add URLs and metadata of already cached pages, under the scope of the current service worker. The browser can then use these entries to display offline reading to a user. As a developer you can also display these entries within your application.</p>
 
 <p>Indexed entries do not automatically expire. It's good practice to present an interface for clearing out entries, or periodically remove older entries.</p>
 
@@ -28,7 +28,7 @@
 
 <h2 id="Service_worker_additions">Service worker additions</h2>
 
-<p>The following additions to the {{domxref('Service Worker API')}} have been specified in the Content Index API spec to provide an entry point for using content indexing.</p>
+<p>The following additions to the {{domxref('ServiceWorker')}} have been specified in the Content Index API spec to provide an entry point for using content indexing.</p>
 
 <dl>
   <dt>{{domxref("ServiceWorkerRegistration.index")}} {{readonlyinline}}</dt>
@@ -40,7 +40,7 @@
 
 <h2 id="Examples">Examples</h2>
 
-<p>All the following examples assume a service worker has been registered. For more information see the {{domxref('Service Worker API')}};</p>
+<p>All the following examples assume a service worker has been registered. For more information see the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API">Service Worker API</a>.</p>
 
 <h3>Feature Detection and Interface Access</h3>
 
@@ -161,7 +161,7 @@ async function unregisterContent(article) {
 }
 </pre>
 
-<p>All the above methods are available within the scope of the {{domxref('Service Worker API','service worker')}}. They are accessible from the {{domxref('WorkerGlobalScope.self')}} property:</p>
+<p>All the above methods are available within the scope of the {{domxref('ServiceWorker','service worker')}}. They are accessible from the {{domxref('WorkerGlobalScope.self')}} property:</p>
 
 <pre class="brush: js">
 // service worker script
