@@ -1,0 +1,98 @@
+<div>{{draft}}{{DefaultAPISidebar("Periodic Background Sync")}}</div>
+
+<p class="summary">The <strong><code>PeriodicSyncManager</code></strong> interface of the {{domxref('Web Periodic Background Synchronization')}} provides a way to register tasks to be run in a service worker at periodic intervals with network connectivity. These tasks are referred to as periodic background sync requests.<code>PeriodicSyncManager</code> use the {{domxref('ServiceWorkerRegistration.periodicSync','periodicSync')}} property of a service worker registration.</p>
+
+<!-- Is it? Check after landing page -->
+<!-- <p>The <code>PeriodicSyncManager</code> interface is available from both the service worker scope and the service worker client script.</p> -->
+
+
+<h2 id="Properties">Properties</h2>
+
+<p>None.</p>
+
+
+<h2 id="Methods">Methods</h2>
+
+<dl>
+  <dt>{{domxref('PeriodicSyncManager.register')}}</dt>
+  <dd>Registers a periodic sync request with the browser with the specified tag and options. Returns a {{jsxref('Promise')}} that resolves when the registration completes.</dd>
+
+  <dt>{{domxref('PeriodicSyncManager. getTags')}}</dt>
+  <dd>Returns a {{jsxref('Promise')}} that resolves with a list of {{jsxref('String','strings')}} representing the tags that are currently registered for periodic syncing.</dd>
+
+  <dt>{{domxref('PeriodicSyncManager. unregister')}}</dt>
+  <dd>Unregisters the periodic sync request corresponding to the specified tag and returns a {{jsxref('Promise')}} that resolves when unregistration completes.</dd>
+</dl>
+
+<h2 id="Examples">Examples</h2>
+
+<p>The following examples show how to use the interface.</p>
+
+<h3>Requesting a periodic sync</h3>
+
+<p>The following asynchronous function registers a periodic background sync at a minimum interval of one day from a browsing context:</p>
+
+<pre class="brush: js">
+async function registerPeriodicNewsCheck() {
+  const registration = await navigator.serviceWorker.ready;
+  try {
+    await registration.periodicSync.register('fetch-news', {
+      minInterval: 24 * 60 * 60 * 1000,
+    });
+  } catch {
+    console.log('Periodic Sync could not be registered!');
+  }
+}
+</pre>
+
+
+<h3>Checking if a periodic sync task with a given tag is registered</h3>
+
+
+<pre class="brush: js">
+navigator.serviceWorker.ready.then(registration => {
+  registration.periodicSync.getTags().then(tags => {
+    if (tags.includes('get-latest-news'))
+      skipDownloadingLatestNewsOnPageLoad();
+  });  
+});
+</pre>
+
+<h1>Removing a periodic sync to stop syncing articles in the background</h1>
+
+
+<pre class="brush: js">
+navigator.serviceWorker.ready.then(registration => {
+  registration.periodicSync.unregister('get-latest-news');
+});
+</pre>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>{{SpecName('Periodic Background Sync','#periodicsyncmanager','PeriodicSyncManager')}}</td>
+   <td>{{Spec2('Periodic Background Sync')}}</td>
+   <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<p>{{Compat("api.PeriodicSyncManager")}}</p>
+
+<h2 id="See_also">See also</h2>
+
+<ul>
+ <li><a href="https://web.dev/periodic-background-sync/">An article on using Periodic Background Sync</a></li>
+ <li><a href="https://webplatformapis.com/periodic_sync/periodicSync_improved.html">A Periodic Background Sync demo app</a></li>
+</ul>
