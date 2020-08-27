@@ -32,6 +32,18 @@
   <dd>Provides a way to run tasks in the service worker with network connectivity.</dd>
 </dl>
 
+<h2 id="Service_worker_additions">Service worker additions</h2>
+
+<p>The following additions to the {{domxref('Service Worker API')}} have been specified in the Periodic Background Sync specification to provide an entry point for using periodic sync.</p>
+
+<dl>
+  <dt>{{domxref("ServiceWorkerRegistration.periodicSync")}} {{readonlyinline}}</dt>
+  <dd>Returns a reference to the {{domxref("PeriodicSyncManager")}} interface for registering tasks to run at specific intervals.</dd>
+
+  <dt>{{domxref("ServiceWorkerGlobalScope.onperiodicsync")}}</dt>
+  <dd>An event handler fired whenever a {{Event("periodicsync")}} event occurs. This happens at timed intervals, which can be specified when registering a {{domxref('PeriodicSyncManager')}}.</dd>
+</dl>
+
 <h2 id="Examples">Examples</h2>
 
 <p>The following examples show how to use the interface.</p>
