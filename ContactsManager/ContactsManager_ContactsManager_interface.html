@@ -1,0 +1,103 @@
+<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Contact Picker API")}}</div>
+
+<p class="summary">The <strong><code>ContactsManager</code></strong> interface of the {{domxref('Contact Picker API')}} allows users to select entries from their contact list and share limited details of the selected entries with a website or application.</p>
+
+<p>The <code>ContactsManager</code> is available through the global {{domxref('navigator.contacts')}} property and must be called on user gesture.</p>
+
+
+<h2 id="Methods">Methods</h2>
+
+<dl>
+  <dt><code>select()</code></dt>
+  <dd>Returns a {{jsxref('Promise')}} which, when resolved, presents the user with a contact picker which allows them to select contact(s) they wish to share.</dd>
+
+  <dt><code>getProperties()</code></dt>
+  <dd>Returns a {{jsxref('Promise')}} which resolves with an {{jsxref('Array')}} of {{jsxref('String','strings')}} indicating which contact properties are available.</dd>
+</dl>
+
+<h2 id="Examples">Examples</h2>
+
+<h3>Feature Detection</h3>
+
+<p>The following code checks whether the Contact Picker API is supported.</p>
+
+<pre class="brush: js">
+const supported = ('contacts' in navigator && 'ContactsManager' in window);
+</pre>
+
+<h3>Checking for Supported Properties</h3>
+
+<p>The following asynchronous function uses the <code>getProperties</code> method to check for supported properties.</p>
+
+<pre class="brush: js notranslate">
+async function checkProperties() {
+  const supportedProperties = await navigator.contacts.getProperties();
+  if (supportedProperties.includes('name')) {
+    // run code for name support
+  }
+  if (supportedProperties.includes('email')) {
+    // run code for email support
+  }
+  if (supportedProperties.includes('tel')) {
+    // run code for telephone number support
+  }
+  if (supportedProperties.includes('address')) {
+    // run code for address support
+  }
+  if (supportedProperties.includes('icon')) {
+    // run code for avatar support
+  }
+}
+</pre>
+
+<h3>Selecting Contacts</h3>
+
+<p>The following example sets an array of properties to be retrieved for each contact, as well as setting an options object to allow for multiple contacts to be selected.</p>
+
+<p>An asynchronous function is then defined which uses the <code>select()</code> method to present the user with a contact picker interface and handle the chosen results.</p>
+
+
+<pre class="brush: js notranslate">
+const props = ['name', 'email', 'tel', 'address', 'icon'];
+const opts = {multiple: true};
+
+async function getContacts() {
+  try {
+      const contacts = await navigator.contacts.select(props, opts);
+      handleResults(contacts);
+  } catch (ex) {
+      // Handle any errors here.
+  }
+}</pre>
+
+<p><code>handleResults()</code> is a developer defined function.</p>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>{{SpecName('Contacts Picker API','#contacts-manager','ContactsManager')}}</td>
+   <td>{{Spec2('Contacts Picker API')}}</td>
+   <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_compatibility">Browser compatibility</h2>
+
+<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+
+<p>{{Compat("api.ContactsManager")}}</p>
+
+<h2>See also:</h2>
+
+<ul>
+  <li><a href="https://web.dev/contact-picker/">A Contact Picker for the Web</a></li>
+  <li><a href="https://contact-picker.glitch.me/">A Contact Picker demo on glitch</a></li>
+</ul>
