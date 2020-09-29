@@ -1,6 +1,6 @@
 <div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Contact Picker API")}}</div>
 
-<p class="summary">The <strong><code>select()</code></strong> method of the {{domxref("ContactsManager")}} interface returns a {{jsxref('Promise')}} which, when resolved, presents the user with a contact picker which allows them to select contact(s) they wish to share.</p>
+<p class="summary">The <strong><code>select()</code></strong> method of the {{domxref("ContactsManager")}} interface returns a {{jsxref('Promise')}} which, when resolved, presents the user with a contact picker which allows them to select contact(s) they wish to share. This method requires a user gesture for the {{jsxref('Promise')}} to resolve.</p>
 
 <h2 id="Syntax">Syntax</h2>
 
@@ -11,12 +11,11 @@
 <dl>
   <dt><em>properties</em></dt>
   <dd>An array of {{jsxref('String', 'strings')}} defining what information to retrieve from a contact. Allowed values are as follows:
-    <!-- I'm unsure of this because in reality it's whatever in contained in each of these fields, not the actually name/email etc... -->
     <ul>
-      <li><code>'name'</code>: The contacts name.</li>
+      <li><code>'name'</code>: The contact's name.</li>
       <li><code>'tel'</code>: The telephone number(s) of the contact.</li>
       <li><code>'email'</code>: The email address of the contact.</li>
-      <li><code>'address'</code>: The contacts postal address.</li>
+      <li><code>'address'</code>: The contact's postal address.</li>
       <li><code>'icon'</code>: The avatar of the contact.</li>
     </ul>
   </dd>
@@ -24,14 +23,14 @@
   <dt><code>options</code> {{optional_inline}}</dt>
   <dd>Options are as follows:
     <ul>
-      <li><code>multiple</code>: Can be <code>true</code> or <code>false</code>. If set to true allows multiple contacts to be selected. Default is <code>false</code>.</li>
+      <li><code>multiple</code>: A {{jsxref('Boolean")}} that allows multiple contacts to be selected. The default is <code>false</code>.</li>
     </ul>
   </dd>
  </dl>
 
 <h3 id="Returns">Return value</h3>
 
-<p>Returns a {{jsxref('Promise')}} which when resolved opens a contact picker.</p>
+<p>Returns a {{jsxref('Promise')}} which resolves on successful contact selection.</p>
 
 <h3 id="Exceptions">Exceptions</h3>
 

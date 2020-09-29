@@ -1,12 +1,16 @@
-<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Contacts Picker API")}}</div>
+<div>{{draft}}{{securecontext_header}}{{DefaultAPISidebar("Contact Picker API")}}</div>
 
-<p class="summary">The Contacts Picker API allows users to select entries from their contact list and share limited details of the selected entries with a website or application.</p>
+<p class="summary">The Contact Picker API allows users to select entries from their contact list and share limited details of the selected entries with a website or application.</p>
 
-<h2>Contacts Picker API Concepts and Usage</h2>
+<div class="note">
+  <p>The Contact Picker API should not be confused with the depreciated <a href="/docs/Archive/B2G_OS/API/Contacts_API">Contact API</a>.</p>
+</div>
+
+<h2>Contact Picker API Concepts and Usage</h2>
 
 <p>Access to contacts has long been a feature available within native applications. The Contacts Picker API brings that functionality to web applications.</p>
 
-<p>Use cases include selecting contacts to message via an email or chat application, to select a contacts phone number for use with voice over IP (VOIP), or for a user to discover contacts who have already joined a social platform. User agents can also offer a consistent experience with other applications on a users device.</p>
+<p>Use cases include selecting contacts to message via an email or chat application, selecting a contacts phone number for use with voice over IP (VOIP), or for discovering contacts who have already joined a social platform. User agents can also offer a consistent experience with other applications on a users device.</p>
 
 <p>When calling the {{domxref('ContactsManager.select', 'select')}} method of the {{domxref('ContactsManager')}} interface, the user is presented with a contact picker, whereby they can then select contact information to share with the web application. User interaction is required before permission to display the contact picker is granted and access to contacts is not persistent; the user must grant access every time a request is made by the application.</p>
 
@@ -14,7 +18,7 @@
 
 <!-- should I put a note in here saying 'don't confuse this with the old Contact API' ?-->
 
-<h2 id="Interfaces">Contact Picker API Interfaces</h2>
+<h2 id="Interfaces">Interfaces</h2>
 
 <dl>
   <dt>{{domxref("ContactManager")}}</dt>
@@ -38,7 +42,7 @@ const supported = ('contacts' in navigator && 'ContactsManager' in window);
 
 <h3>Checking for Supported Properties</h3>
 
-<p>The following asynchronous function uses the <code>getProperties</code> method to check for supported properties.</p>
+<p>The following asynchronous function uses the <code>getProperties()</code> method to check for supported properties.</p>
 
 <pre class="brush: js notranslate">
 async function checkProperties() {
@@ -96,8 +100,8 @@ async function getContacts() {
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('')}}</td>
-   <td>{{Spec2('')}}</td>
+   <td>{{SpecName('Contact Picker API')}}</td>
+   <td>{{Spec2('Contact Picker API')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
